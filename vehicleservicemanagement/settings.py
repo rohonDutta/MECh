@@ -19,16 +19,13 @@ STATIC_DIR=os.path.join(BASE_DIR,'static')
 MEDIA_ROOT=os.path.join(BASE_DIR,'static')
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'ftxnh_7475z^joy_*l9t*qnqow!@)y#(541^w1=(8--=3g#4*d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1:8000', '']
+ALLOWED_HOSTS = ['.vercel.app', 'now.sh']
 
 
 # Application definition
@@ -76,8 +73,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'vehicleservicemanagement.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
 
 DATABASES = {
  'default': {
@@ -87,8 +83,7 @@ DATABASES = {
 }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
+s
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -106,8 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.0/topics/i18n/
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -120,10 +114,13 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 STATICFILES_DIRS=[
 STATIC_DIR,
@@ -136,11 +133,6 @@ EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'from@gmail.com' # this email will be used to send emails
-EMAIL_HOST_PASSWORD = 'xyz' # host email password required
-# now sign in with your host gmail account in your browser
-# open following link and turn it ON
-# https://myaccount.google.com/lesssecureapps
-# otherwise you will get SMTPAuthenticationError at /contactus
-# this process is required because google blocks apps authentication by default
-EMAIL_RECEIVING_USER = ['to@gmail.com'] # email on which you will receive messages sent from website
+EMAIL_HOST_USER = 'xyz@gmail.com' 
+EMAIL_HOST_PASSWORD = 'xyz' 
+EMAIL_RECEIVING_USER = ['rohondutta0@gmail.com']
